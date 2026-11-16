@@ -13,6 +13,10 @@ type SectionHeadingProps = {
   align?: "start" | "center";
   /** `accent` is for headings that sit on the solid blue band. */
   tone?: "light" | "dark" | "accent";
+  /** Optional font family override for a specific section. */
+  fontClassName?: string;
+  /** Optional intro text sizing and font override. */
+  introClassName?: string;
   id?: string;
   className?: string;
 };
@@ -28,6 +32,8 @@ export function SectionHeading({
   size = "h2",
   align = "start",
   tone = "light",
+  fontClassName,
+  introClassName,
   id,
   className,
 }: SectionHeadingProps) {
@@ -46,14 +52,15 @@ export function SectionHeading({
   return (
     <div className={cn("max-w-3xl", align === "center" && "mx-auto text-center", className)}>
       {label && (
-        <Eyebrow tone={tone} className="mb-5">
+        <Eyebrow tone={tone} className={cn("mb-5", fontClassName)}>
           {label}
         </Eyebrow>
       )}
       <Tag
         id={id}
         className={cn(
-          "font-display text-balance",
+          fontClassName ?? "font-display",
+          "text-balance",
           sizes[size],
           dark && "text-on-night",
           tone === "accent" && "text-white",
@@ -84,7 +91,8 @@ export function SectionHeading({
       {intro && (
         <p
           className={cn(
-            "mt-4 max-w-2xl text-lead text-pretty",
+            "mt-4 max-w-2xl text-pretty",
+            introClassName ?? "text-lead",
             mutedText,
             align === "center" && "mx-auto",
           )}

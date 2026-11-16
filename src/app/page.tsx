@@ -63,19 +63,21 @@ export default function HomePage() {
       <section
         aria-labelledby="connects-heading"
         data-surface="dark"
-        className="bg-brand-blend relative overflow-hidden py-20 text-white sm:py-28"
+        className="bg-brand-blend relative overflow-hidden py-14 text-white sm:py-20"
       >
         <div className="container-site relative">
           <SectionHeading
             id="connects-heading"
             tone="accent"
             align="center"
-            size="h1"
+            size="h2"
+            fontClassName="font-display font-medium"
+            introClassName="text-base leading-relaxed"
             label={connects.label}
             heading={connects.heading}
             intro={connects.intro}
           />
-          <div className="mt-14 sm:mt-20">
+          <div className="mt-10 sm:mt-14">
             <ConnectsAssemble nodes={connects.areas} centerLabel={connects.centerLabel} />
           </div>
         </div>
@@ -107,11 +109,11 @@ export default function HomePage() {
             >
               <div
                 aria-hidden="true"
-                className="absolute -right-40 -top-56 size-[36rem] rounded-full bg-accent/50 blur-[120px]"
+                className="absolute -right-40 -top-56 size-[32rem] rounded-full bg-accent/30 blur-[110px]"
               />
               <div
                 aria-hidden="true"
-                className="absolute -bottom-64 -left-40 size-[32rem] rounded-full bg-pink/30 blur-[120px]"
+                className="absolute -bottom-64 -left-40 size-[28rem] rounded-full bg-pink/15 blur-[110px]"
               />
               <div className="relative">
                 <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">

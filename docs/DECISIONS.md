@@ -5,10 +5,10 @@ revisit them knowingly.
 
 ## Inputs
 
-- **No reference image or Stitch/Figma screens were attached** to the brief. The visual language
-  follows the written description (warm off-white canvas, headlines with an emphasis line, one
-  vivid orange accent, small labels, rounded dark cards next to light sections). If screens arrive
-  later, tokens in `globals.css` and the section components are the places to adjust.
+- **No reference image or Stitch/Figma screens were attached** to the original brief. The visual
+  language follows its written description. Later client supplied materials supersede older
+  palette and typography notes; tokens in `globals.css` and section components are the places to
+  adjust.
 - **No official content.** Every name, figure, date, partner, person and quote is a clearly marked
   placeholder (photos are clearly credited stock stand-ins) (`[Program name]`, `[00]+`, `[Partner logo]`). Copy that is used verbatim comes only
   from the brief (mission, areas of work, brand themes, audiences). Program "formats" (e.g. "Youth
@@ -19,14 +19,15 @@ revisit them knowingly.
 The client supplied the **brand guidelines** (logo, colours, typography, voice) and the
 **"About Afri-Youth Innovation Labs" document (new version, 16 September 2026)**. The site was
 rebuilt around them. Earlier entries below describe the pre-brand build; where they mention
-orange, Inclusive Sans or placeholder programs, this section supersedes them.
+the former palette or placeholder programs, this section supersedes them.
 
 - **Logo:** traced from the vector artwork inside the guidelines PDF, not redrawn. Gradient mark
   on light surfaces, white mark on blue/dark, favicon from the "Favicon & Mark" version.
 - **Colours:** brand Blue is the action colour (white text, 8.6:1), Dark Purple replaces black,
   Steel Pink appears only in gradients, glows and as a light tint on dark surfaces.
-- **Fonts:** Poppins for titles as specified. Gilroy (body) is a paid typeface and no files were
-  supplied, so Figtree stands in until a web licence exists (`src/app/layout.tsx`).
+- **Fonts:** The brand guide specifies Poppins titles and Gilroy body text. On the user's later
+  design direction, the website now uses Inclusive Sans across all text, with the shared type scale
+  preserving the heading, body and label hierarchy.
 - **Mission and vision:** the September 2026 document is newer than the 2023 guidelines, so its
   mission and vision are used. The tagline is the one in the logo lockup, "Fueling Innovators for
   Sustainable Development"; "From evidence to impact" is used as a supporting line.

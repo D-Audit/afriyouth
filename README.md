@@ -39,7 +39,7 @@ More detail: [`docs/DESIGN.md`](docs/DESIGN.md) (design system) and
 | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Next.js 16** (App Router, TypeScript strict) | Mainstream, well-documented, first-class hosting on Vercel and Netlify. Pages are prerendered to static HTML, so the site is fast and cheap to host.            |
 | **Tailwind CSS 4**                             | Styling lives next to the markup; all colours, type sizes and radii come from one token file.                                                                   |
-| **next/font**                                  | Poppins (titles) and Figtree (body, standing in for the licensed brand font Gilroy), self-hosted automatically: no layout shift, no calls to Google at runtime. |
+| **next/font**                                  | Inclusive Sans across the site, self-hosted automatically: no layout shift and no browser requests to Google Fonts. |
 | **lucide-react**                               | One consistent outline icon set (1.5px stroke).                                                                                                                 |
 | **motion** (Framer Motion)                     | Small, accessible scroll-reveal and count-up animations that respect "reduce motion".                                                                           |
 | **zod**                                        | One validation schema shared by the contact form (browser) and the API route (server).                                                                          |

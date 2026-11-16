@@ -1,7 +1,7 @@
 # Design system
 
 Follows the official **Afri Youth Innovation Labs brand guidelines** (logo, colours, typography,
-voice): confident Poppins headlines with an emphasis line, the brand Blue as the single action
+voice): clear Inclusive Sans headlines with an emphasis line, the brand Blue as the single action
 colour, Steel Pink only as an accent and in the logo gradient, Dark Purple for text and dark
 surfaces, real photography, and rounded dark feature panels next to light sections.
 
@@ -74,23 +74,23 @@ the gradient, text sits on the blue end or is heading-sized.
 
 | Role              | Font                                | Token / class         |
 | ----------------- | ----------------------------------- | --------------------- |
-| Titles & headings | **Poppins** 600 (brand title font)  | `font-display`        |
-| Body & UI         | Figtree, standing in for **Gilroy** | `font-sans` (default) |
-| Labels            | Body font 500, sentence case        | `label-caps` utility  |
+| Titles & headings | **Inclusive Sans** 500–600           | `font-display`        |
+| Body & UI         | **Inclusive Sans** 400               | `font-sans` (default) |
+| Labels            | Inclusive Sans 500, sentence case   | `label-caps` utility  |
 
-Gilroy (the brand body font) is commercially licensed and no font files were supplied. Figtree is
-the closest free match. To switch, see the note in `src/app/layout.tsx`.
+Inclusive Sans is self-hosted through `next/font` and used across the full site at different
+weights. The title and body roles retain the same shared type scale for a consistent hierarchy.
 
 Fluid type scale (`clamp()`), from 360px to 1440px+:
 
 | Class          | Size      | Use                         |
 | -------------- | --------- | --------------------------- |
-| `text-hero`    | 34 → 60px | Home hero headline only     |
+| `text-hero`    | 30 → 44px | Home hero headline only     |
 | `text-display` | 34 → 52px | 404, large statements       |
 | `text-h1`      | 30 → 42px | Page heroes, impact figures |
 | `text-h2`      | 24 → 32px | Section headings            |
-| `text-h3`      | 19 → 22px | Card titles                 |
-| `text-lead`    | 17 → 20px | Intros                      |
+| `text-h3`      | 18 → 20px | Card titles                 |
+| `text-lead`    | 16 → 17px | Intros                      |
 | `text-label`   | 13px      | Labels                      |
 
 **Headline pattern:** every section title is `{ title, emphasis }`. The emphasis renders in

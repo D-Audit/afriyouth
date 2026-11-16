@@ -41,10 +41,9 @@
   --color-danger: #b3261e;
   --color-danger-tint: #fdecea;
 
-  /* Typography: Poppins for titles, Gilroy for body (see layout.tsx for the body font note) */
-  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  --font-inclusive: var(--font-inclusive-sans), ui-sans-serif, system-ui, sans-serif;
+  /* One family throughout; heading and body roles differ through the shared size and weight scale. */
+  --font-display: var(--font-inclusive-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inclusive-sans), ui-sans-serif, system-ui, sans-serif;
 
   --text-hero: clamp(1.875rem, 1.55rem + 1.4vw, 2.75rem);
   --text-hero--line-height: 1.12;
@@ -92,8 +91,7 @@
   padding-inline: clamp(1rem, 0.45rem + 2.6vw, 2.5rem);
 }
 
-/* Small supporting label (card categories, field names, column headings).
-   Sentence case and normal tracking keep it calm next to the Poppins headings. */
+/* Small supporting label (card categories, field names, column headings). */
 @utility label-caps {
   font-family: var(--font-sans);
   font-weight: 500;

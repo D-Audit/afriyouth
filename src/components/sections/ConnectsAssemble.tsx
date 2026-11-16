@@ -45,7 +45,7 @@ export function ConnectsAssemble({ nodes, centerLabel }: { nodes: Node[]; center
     <m.div
       ref={ref}
       style={animated ? ({ "--p": scatter } as MotionStyle) : undefined}
-      className="relative mx-auto w-full max-w-[27rem] [--spread:14vw] sm:[--spread:24vw] lg:[--spread:30vw]"
+      className="relative mx-auto w-full max-w-[24rem] [--spread:14vw] sm:[--spread:24vw] lg:[--spread:30vw]"
     >
       {/* The line that ties the column together draws in as the capsules arrive. */}
       <m.div
@@ -64,7 +64,7 @@ export function ConnectsAssemble({ nodes, centerLabel }: { nodes: Node[]; center
             >
               <Link
                 href={node.href}
-                className="group flex min-h-[4.5rem] items-stretch overflow-hidden rounded-full bg-canvas text-ink shadow-[0_1px_2px_rgb(13_6_36/0.08),0_6px_14px_-10px_rgb(13_6_36/0.3)] transition-transform duration-300 ease-out-soft hover:-translate-y-0.5 hover:scale-[1.02] motion-reduce:transform-none"
+                className="group flex min-h-[3.75rem] items-stretch overflow-hidden rounded-full bg-canvas text-ink shadow-[0_1px_2px_rgb(13_6_36/0.08),0_6px_14px_-10px_rgb(13_6_36/0.3)] transition-transform duration-300 ease-out-soft hover:-translate-y-0.5 hover:scale-[1.02] motion-reduce:transform-none"
               >
                 <span className="flex w-[5.5rem] shrink-0 items-center justify-center gap-2 text-accent-ink">
                   <span className="text-[0.8125rem] font-medium tabular-nums text-muted">
@@ -72,8 +72,10 @@ export function ConnectsAssemble({ nodes, centerLabel }: { nodes: Node[]; center
                   </span>
                   <Icon name={node.icon} className="size-5" />
                 </span>
-                <span className="flex min-w-0 flex-1 flex-col justify-center py-3 pl-4 pr-2">
-                  <span className="font-display text-[1.0625rem] leading-snug">{node.title}</span>
+                <span className="flex min-w-0 flex-1 flex-col justify-center py-2.5 pl-4 pr-2">
+                  <span className="font-display text-base font-medium leading-snug">
+                    {node.title}
+                  </span>
                   {node.caption && (
                     <span className="text-sm leading-snug text-muted">{node.caption}</span>
                   )}
@@ -88,7 +90,7 @@ export function ConnectsAssemble({ nodes, centerLabel }: { nodes: Node[]; center
       </ol>
       <m.p
         style={animated ? { opacity: settle, scale: settleScale } : undefined}
-        className="relative mx-auto mt-5 flex w-fit items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-5 py-3 font-display text-[1.0625rem] text-white"
+        className="relative mx-auto mt-4 flex w-fit items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-4 py-2.5 font-display text-base font-medium text-white"
       >
         <span aria-hidden="true" className="size-2 rounded-full bg-accent-soft" />
         {centerLabel}
