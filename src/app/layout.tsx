@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Figtree, Poppins } from "next/font/google";
+import { Figtree, Inclusive_Sans, Poppins } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { SiteLoader, LOADER_SCRIPT } from "@/components/layout/SiteLoader";
@@ -32,6 +32,14 @@ const body = Figtree({
   display: "swap",
 });
 
+/** Inclusive Sans is used only for the homepage hero headline. */
+const inclusiveSans = Inclusive_Sans({
+  variable: "--font-inclusive-sans",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: site.name, template: `%s | ${site.name}` },
@@ -49,7 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang={site.locale}
-      className={`${poppins.variable} ${body.variable} antialiased`}
+      className={`${poppins.variable} ${body.variable} ${inclusiveSans.variable} antialiased`}
       suppressHydrationWarning
     >
       <head>

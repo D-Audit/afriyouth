@@ -72,7 +72,7 @@ export function HomeHero({
               title={heading.title}
               emphasis={heading.emphasis}
               photos={content.hoverPhotos}
-              className="font-display text-hero text-balance"
+              className="font-inclusive text-hero font-medium text-balance"
             />
           </div>
           <p style={step(2)} className="hero-in mt-6 max-w-2xl text-lead text-muted text-pretty">
