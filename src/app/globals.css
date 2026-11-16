@@ -1,0 +1,352 @@
+@import "tailwindcss";
+
+/*
+ * AfriYouth design tokens.
+ * Every colour, radius, shadow and type size used in the UI is defined here.
+ * The default Tailwind palette is reset so components can only use tokens.
+ * See docs/DESIGN.md for usage guidance and verified contrast pairs.
+ */
+@theme {
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-white: #ffffff;
+
+  /* Surfaces */
+  --color-canvas: #f5f5f7;
+  --color-sand: #ececf3;
+  --color-sand-deep: #dddde8;
+  --color-line: #e2e2ec;
+  --color-night: #0d0624; /* brand Dark Purple */
+  --color-night-raised: #17103a;
+  --color-night-line: #2b2352;
+
+  /* Text */
+  --color-ink: #0d0624; /* brand Dark Purple */
+  --color-muted: #55516b;
+  --color-on-night: #f5f5f7;
+  --color-on-night-muted: #aaa6c2;
+
+  /* Brand accent (official palette: Blue, Duke Blue, Steel Pink) */
+  --color-accent: #0301ff; /* brand Blue: fills with white text (8.6:1), text on light (7.9:1) */
+  --color-accent-hover: #0200a7; /* brand Duke Blue: hover fill, white text (13.5:1) */
+  --color-accent-ink: #0301ff; /* blue text on canvas / sand / white */
+  --color-accent-soft: #e58cf2; /* Steel Pink tint: accent text on night (8.8:1) */
+  --color-accent-tint: #e6e6ff; /* soft blue backgrounds (badges, notices) */
+  --color-pink: #c723df; /* brand Steel Pink: gradients, decoration, large text only */
+  --color-pink-tint: #f6c9fb; /* emphasis text on the solid blue band (6.0:1) */
+  --color-duke: #0200a7; /* brand Duke Blue */
+
+  /* Form errors (not a brand colour; errors must not look like links) */
+  --color-danger: #b3261e;
+  --color-danger-tint: #fdecea;
+
+  /* Typography: Poppins for titles, Gilroy for body (see layout.tsx for the body font note) */
+  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+
+  --text-hero: clamp(2.125rem, 1.5rem + 2.6vw, 3.75rem);
+  --text-hero--line-height: 1.06;
+  --text-display: clamp(2.125rem, 1.65rem + 1.9vw, 3.25rem);
+  --text-display--line-height: 1.06;
+  --text-h1: clamp(1.875rem, 1.55rem + 1.3vw, 2.625rem);
+  --text-h1--line-height: 1.1;
+  --text-h2: clamp(1.5rem, 1.3rem + 0.85vw, 2rem);
+  --text-h2--line-height: 1.15;
+  --text-h3: clamp(1.125rem, 1.07rem + 0.25vw, 1.25rem);
+  --text-h3--line-height: 1.3;
+  --text-lead: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+  --text-lead--line-height: 1.6;
+  --text-label: 0.8125rem;
+  --text-label--line-height: 1.4;
+
+  /* Shape */
+  --radius-card: 1.25rem;
+  --radius-card-lg: 1.5rem;
+  --shadow-soft: 0 1px 2px rgb(13 6 36 / 0.04), 0 10px 30px -14px rgb(13 6 36 / 0.14);
+  --shadow-lift: 0 2px 4px rgb(13 6 36 / 0.05), 0 22px 44px -18px rgb(13 6 36 / 0.24);
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-rise: rise 0.8s var(--ease-out-soft) both;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  /* Transform-only so above-the-fold text paints immediately (keeps LCP fast). */
+  @keyframes rise {
+    from {
+      transform: translateY(12px);
+    }
+  }
+}
+
+@utility container-site {
+  width: 100%;
+  max-width: 82.5rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 0.45rem + 2.6vw, 2.5rem);
+}
+
+/* Small supporting label (card categories, field names, column headings).
+   Sentence case and normal tracking keep it calm next to the Poppins headings. */
+@utility label-caps {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+  letter-spacing: 0;
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  /* Headings: semibold, slightly tightened. Utilities (e.g. font-medium) still override. */
+  .font-display {
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  :root {
+    --focus: var(--color-accent-ink);
+    --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2355516b' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    color-scheme: light;
+  }
+
+  /* Smooth scrolling is handled by Lenis (SmoothScroll.tsx); native smooth scroll would fight it. */
+  html {
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-tint);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 0.375rem;
+  }
+
+  [data-surface="dark"] {
+    --focus: var(--color-accent-soft);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * First-visit loader (SiteLoader.tsx). The brand lockup appears briefly, then lifts away.
+ * ------------------------------------------------------------------------- */
+.site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background-color: var(--color-duke);
+  background-image: radial-gradient(120% 90% at 0% 100%, rgb(199 35 223 / 0.55), transparent 60%);
+  color: #fff;
+  animation: loader-lift 0.7s cubic-bezier(0.76, 0, 0.24, 1) 1.55s forwards;
+}
+.site-loader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: loader-fade 0.25s ease-in 1.4s forwards;
+}
+.site-loader__wordmark {
+  transform: scale(0.9);
+  opacity: 0;
+  animation: loader-logo-pop 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.08s forwards;
+}
+
+@keyframes loader-lift {
+  to {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+}
+@keyframes loader-fade {
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+@keyframes loader-logo-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.86) translateY(8px);
+  }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ---------------------------------------------------------------------------
+ * Home hero entrance (HomeHero.tsx). Each `.hero-in` step follows the one before it
+ * (`--i`). The headline and the photo stage move without fading, so the largest
+ * element is painted on the first frame (keeps LCP fast).
+ * ------------------------------------------------------------------------- */
+.hero-in {
+  animation: hero-in 1s var(--ease-out-soft) both;
+  animation-delay: calc(var(--i, 0) * 90ms + var(--intro-delay, 0ms));
+}
+.hero-rise {
+  animation: hero-rise 1s var(--ease-out-soft) both;
+  animation-delay: var(--intro-delay, 0ms);
+}
+.hero-stage-in {
+  animation: hero-stage 1.3s var(--ease-out-soft) both;
+  animation-delay: calc(120ms + var(--intro-delay, 0ms));
+}
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(6px);
+  }
+}
+@keyframes hero-rise {
+  from {
+    transform: translateY(26px);
+  }
+}
+@keyframes hero-stage {
+  from {
+    transform: translateY(72px) scale(0.97);
+  }
+}
+/* While the first-visit intro plays, the hero waits for the panel to lift. */
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.intro-seen) {
+    --intro-delay: 2s;
+  }
+}
+
+/* Repeat visits in the same session, and reduced-motion users, never see it. */
+.intro-seen .site-loader {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-loader {
+    display: none;
+  }
+}
+/* While the intro plays, hold the hero's entrance until the panel lifts. */
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.intro-seen) .animate-rise {
+    animation-delay: 2s;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Signature details
+ * ------------------------------------------------------------------------- */
+
+/* Soft brand-gradient block (pink to blue tints) behind key words (Highlight.tsx). Wipes in from the left. */
+.highlight {
+  background-image: linear-gradient(100deg, #f6c9fb 0%, #dcc9ff 48%, #c8caff 100%);
+  background-repeat: no-repeat;
+  background-position: 0 72%;
+  background-size: 100% 80%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding-inline: 0.1em;
+  margin-inline: -0.05em;
+  border-radius: 0.08em;
+  animation: highlight-wipe 1.2s var(--ease-out-soft) 0.35s both;
+}
+@keyframes highlight-wipe {
+  from {
+    background-size: 0% 80%;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.intro-seen) .highlight {
+    animation-delay: 2s;
+  }
+}
+
+/* Slow pulse of the accent glow on the closing call to action (CtaBand.tsx). */
+@keyframes glow-breathe {
+  50% {
+    opacity: 0.6;
+    scale: 1.12;
+  }
+}
+
+/* Outlined display words (VelocityMarquee). */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-ink);
+}
+
+/* Film grain over dark panels; purely visual and never blocks clicks. */
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* The brand gradient (Steel Pink to Blue), as used in the logo figure. */
+.bg-brand-gradient {
+  background-image: linear-gradient(
+    125deg,
+    var(--color-pink) 0%,
+    #460df4 55%,
+    var(--color-accent) 100%
+  );
+}
+.text-brand-gradient {
+  background-image: linear-gradient(100deg, var(--color-pink), var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/*
+ * Calm blend of the brand palette for large coloured sections: Dark Purple base, Duke Blue
+ * across the middle, a soft Blue light at the top right and Steel Pink at the bottom left.
+ * Used instead of a flat #0301FF fill, which is too intense over a full-width area.
+ */
+.bg-brand-blend {
+  background-color: var(--color-night);
+  background-image:
+    radial-gradient(55% 70% at 8% 100%, rgb(199 35 223 / 0.34), transparent 70%),
+    radial-gradient(50% 65% at 95% 0%, rgb(3 1 255 / 0.5), transparent 72%),
+    linear-gradient(155deg, #0d0624 0%, #0a0366 45%, #0200a7 100%);
+}
