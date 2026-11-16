@@ -10,11 +10,14 @@ type MediaProps = {
   /** Responsive sizes hint for next/image, e.g. "(min-width: 1024px) 50vw, 100vw". */
   sizes: string;
   eager?: boolean;
+  objectPosition?: string;
   /** Where the placeholder caption sits; use "top" when something overlaps the bottom. */
   captionPosition?: "top" | "bottom";
   /** Photo drifts slightly slower than the page while scrolling. On by default.
    *  Every photo also zooms in gently as it reaches the middle of the screen. */
   parallax?: boolean;
+  /** Disable the scroll zoom when the image should keep a stable frame. */
+  zoom?: boolean;
   className?: string;
 };
 
@@ -27,20 +30,23 @@ export function Media({
   image,
   sizes,
   eager,
+  objectPosition,
   captionPosition = "bottom",
   parallax = true,
+  zoom = true,
   className,
 }: MediaProps) {
   if (image.src) {
     return (
       <div className={cn("relative overflow-hidden bg-sand", className)}>
-        <Parallax strength={parallax ? 8 : 0}>
+        <Parallax strength={parallax ? 8 : 0} zoom={zoom}>
           <Image
             src={image.src}
             alt={image.alt}
             fill
             sizes={sizes}
             loading={eager ? "eager" : undefined}
+            style={objectPosition ? { objectPosition } : undefined}
             className="object-cover [scale:var(--zoom,1)]"
           />
         </Parallax>

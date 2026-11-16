@@ -17,11 +17,14 @@ const ZOOM = 1.1;
 export function Parallax({
   children,
   strength = 8,
+  zoom = true,
   className,
 }: {
   children: ReactNode;
   /** Total vertical drift as a percentage of the element's height; 0 turns drift off. */
   strength?: number;
+  /** Whether to scale the image as it scrolls through the viewport. */
+  zoom?: boolean;
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -32,7 +35,7 @@ export function Parallax({
   return (
     <div ref={ref} className="absolute inset-0">
       <m.div
-        style={reduce ? undefined : { y, scale }}
+        style={reduce ? undefined : { y, scale: zoom ? scale : 1 }}
         className={cn(
           "absolute inset-x-0 will-change-transform",
           strength > 0 ? "-inset-y-[9%]" : "inset-y-0",

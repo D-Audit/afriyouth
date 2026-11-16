@@ -30,7 +30,7 @@ export function PageHero({
   const side = image ? (
     <Media
       image={image}
-      priority
+      eager
       sizes="(min-width: 1024px) 40vw, 100vw"
       className="aspect-[4/3] rounded-card-lg"
     />

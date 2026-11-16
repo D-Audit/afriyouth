@@ -238,7 +238,7 @@
 }
 @keyframes hero-stage {
   from {
-    transform: translateY(72px) scale(0.97);
+    transform: translateY(72px);
   }
 }
 /* While the first-visit intro plays, the hero waits for the panel to lift. */

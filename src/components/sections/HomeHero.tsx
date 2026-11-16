@@ -98,7 +98,10 @@ export function HomeHero({
           </div>
         </ScrollDrift>
 
-        <div style={step(4)} className="hero-stage-in mt-14 sm:mt-16">
+        <div
+          style={step(4)}
+          className="hero-stage-in mx-auto mt-14 w-full max-w-[60rem] sm:mt-16"
+        >
           <HeroStage
             card={
               <div
@@ -131,10 +134,11 @@ export function HomeHero({
             <Media
               image={content.image}
               eager
+              objectPosition="center 20%"
               parallax={false}
-              captionPosition="top"
-              sizes="(min-width: 1360px) 1240px, 94vw"
-              className="aspect-[4/3] w-full sm:aspect-[16/9] lg:aspect-[2/1]"
+              zoom={false}
+              sizes="(min-width: 960px) 960px, 94vw"
+              className="aspect-[4/3] w-full"
             />
           </HeroStage>
         </div>

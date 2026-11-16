@@ -48,9 +48,9 @@ export const homePage = {
       { label: "What we do", href: "/services" },
     ] satisfies LinkItem[],
     image: {
-      src: "/images/photos/solar-team.jpg",
-      alt: "Three young engineers in hard hats reviewing work together",
-      placeholder: "Three young engineers in hard hats reviewing work together",
+      src: "/images/photos/vr-design.jpg",
+      alt: "A young person wearing a virtual reality headset in a bright workspace",
+      placeholder: "A young person wearing a virtual reality headset in a bright workspace",
     } satisfies ImageSlot,
     floatingCard: {
       label: "Our flagship",
