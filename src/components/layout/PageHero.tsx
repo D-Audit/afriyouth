@@ -4,7 +4,7 @@ import { Media } from "@/components/ui/Media";
 import { Pattern } from "@/components/ui/Pattern";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import type { Headline, ImageSlot, LinkItem } from "@/content/types";
-import { Breadcrumbs } from "./Breadcrumbs";``
+import { Breadcrumbs } from "./Breadcrumbs";
 type PageHeroProps = {
   label: string;
   heading: Headline;

@@ -12,9 +12,10 @@
 import type { PageMeta } from "./types";
 
 export const contactDetails = {
-  email: { label: "Email", display: "[hello@your-domain.org]", href: "mailto:hello@example.org" },
-  phone: { label: "Phone", display: "[+000 000 000 000]", href: "tel:+000000000000" },
-  address: { label: "Location", display: "[City, Country]" },
+  // Fill these in when the organization confirms its official contact details.
+  email: { label: "Email", display: "", href: "" },
+  phone: { label: "Phone", display: "", href: "" },
+  address: { label: "Location", display: "" },
   socialLabel: "Follow us",
 };
 
@@ -38,6 +39,7 @@ export const contactPage = {
     intro: "Questions about our programs, labs or partnerships? Start here.",
   },
   detailsHeading: "Other ways to reach us",
+  noOtherChannels: "The quickest way to reach us is the form.",
   form: {
     heading: "Send us a message",
     requiredNote: "Fields marked * are required.",
@@ -67,8 +69,7 @@ export const contactPage = {
       body: "We'll get back to you as soon as we can.",
       again: "Send another message",
     },
-    failure:
-      "Something went wrong and your message wasn't sent. Please try again, or email us directly.",
+    failure: "Something went wrong and your message wasn't sent. Please try again.",
   },
 };
 

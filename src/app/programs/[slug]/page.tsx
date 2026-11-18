@@ -163,6 +163,11 @@ async function ProgramPageContent({ params }: { params: Promise<{ slug: string }
                 </ul>
               </DetailBlock>
             )}
+            {!program.whoCanJoin && (
+              <DetailBlock id="eligibility-dates" title={detail.eligibilityDatesLabel}>
+                <p className="text-lead text-muted">{detail.pendingNote}</p>
+              </DetailBlock>
+            )}
           </div>
 
           <aside className="lg:col-span-4">

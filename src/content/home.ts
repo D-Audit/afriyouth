@@ -44,8 +44,9 @@ export const homePage = {
     },
     pathsLabel: "",
     paths: [
-      { label: "Explore our programs", href: "/programs" },
-      { label: "What we do", href: "/services" },
+      { label: "I'm a young person", href: "/programs" },
+      { label: "I'm an organization", href: "/services" },
+      { label: "I'm a partner", href: "/partner" },
     ] satisfies LinkItem[],
     image: {
       src: "/images/photos/vr-design.jpg",

@@ -26,26 +26,10 @@ export const site = {
   description:
     "AfriYouth Innovation Labs is a research, innovation and policy consulting firm that identifies, nurtures and advances promising ideas from Africa's young innovators to address the Sustainable Development Goals (SDGs).",
   /** Set NEXT_PUBLIC_SITE_URL in your hosting environment; this is the fallback. */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.example.org",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "https://afriyouth-chi.vercel.app"),
   locale: "en",
-  social: [
-    {
-      platform: "linkedin",
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/company/afriyouth-placeholder",
-    },
-    {
-      platform: "instagram",
-      label: "Instagram",
-      href: "https://www.instagram.com/afriyouth-placeholder",
-    },
-    { platform: "x", label: "X (Twitter)", href: "https://x.com/afriyouth-placeholder" },
-    {
-      platform: "youtube",
-      label: "YouTube",
-      href: "https://www.youtube.com/@afriyouth-placeholder",
-    },
-  ] satisfies { platform: SocialPlatform; label: string; href: string }[],
+  // Add confirmed profiles here, for example: { platform: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/company/..." }
+  social: [] as { platform: SocialPlatform; label: string; href: string }[],
 };
 
 export const ui = {

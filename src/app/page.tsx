@@ -34,10 +34,10 @@ function OrganizationJsonLd() {
     "@type": "Organization",
     name: site.name,
     url: site.url,
-    logo: `${site.url}/icon.svg`,
     description: site.description,
-    email: contactDetails.email.href.replace("mailto:", ""),
-    sameAs: site.social.map((social) => social.href),
+    ...(contactDetails.email.display ? { email: contactDetails.email.display } : {}),
+    ...(site.social.length > 0 ? { sameAs: site.social.map((social) => social.href) } : {}),
+    logo: `${site.url}/icon.svg`,
   };
   return (
     <script

@@ -25,7 +25,7 @@ export default function ContactPage() {
       href: contactDetails.phone.href,
     },
     { icon: MapPin, label: contactDetails.address.label, value: contactDetails.address.display },
-  ];
+  ].filter((channel) => channel.value);
 
   return (
     <>
@@ -40,7 +40,8 @@ export default function ContactPage() {
             className="self-start rounded-card-lg bg-night p-6 text-on-night sm:p-10 lg:col-span-5"
           >
             <h2 className="font-display text-h3">{detailsHeading}</h2>
-            <ul className="mt-8 space-y-6">
+            {channels.length === 0 && site.social.length === 0 && <p className="mt-4 text-on-night-muted">{contactPage.noOtherChannels}</p>}
+            {channels.length > 0 && <ul className="mt-8 space-y-6">
               {channels.map((channel) => (
                 <li key={channel.label} className="flex gap-4">
                   <span className="inline-flex shrink-0 pt-0.5 text-accent-soft">
@@ -61,9 +62,9 @@ export default function ContactPage() {
                   </div>
                 </li>
               ))}
-            </ul>
-            <h3 className="label-caps mt-10 text-on-night-muted">{contactDetails.socialLabel}</h3>
-            <ul className="mt-4 flex flex-wrap gap-2">
+            </ul>}
+            {site.social.length > 0 && <h3 className="label-caps mt-10 text-on-night-muted">{contactDetails.socialLabel}</h3>}
+            {site.social.length > 0 && <ul className="mt-4 flex flex-wrap gap-2">
               {site.social.map((social) => (
                 <li key={social.platform}>
                   <a
@@ -78,7 +79,7 @@ export default function ContactPage() {
                   </a>
                 </li>
               ))}
-            </ul>
+            </ul>}
           </aside>
         </div>
       </Section>

@@ -38,7 +38,7 @@ export function ContactForm({
 
     const slug = params.get("program");
     const program = programs.find((item) => item.slug === slug);
-    if (program) setMessage(`I have a question about ${program.name}.`);
+    if (program) queueMicrotask(() => setMessage(`I have a question about ${program.name}.`));
   }, []);
 
   useEffect(() => {
@@ -124,10 +124,10 @@ export function ContactForm({
         )}
         {status === "error" && (
           <p className="rounded-2xl bg-danger-tint px-4 py-3 font-medium text-danger">
-            {form.failure}{" "}
+            {form.failure}{fallbackEmail.display && fallbackEmail.href && <> {" "}
             <a href={fallbackEmail.href} className="underline underline-offset-4">
               {fallbackEmail.display}
-            </a>
+            </a></>}
           </p>
         )}
       </div>
