@@ -1,7 +1,7 @@
 # Design system
 
 Follows the official **Afri Youth Innovation Labs brand guidelines** (logo, colours, typography,
-voice): clear Inclusive Sans headlines with an emphasis line, the brand Blue as the single action
+voice): clear Poppins headlines with an emphasis line, the brand Blue as the single action
 colour, Steel Pink only as an accent and in the logo gradient, Dark Purple for text and dark
 surfaces, real photography, and rounded dark feature panels next to light sections.
 
@@ -74,12 +74,11 @@ the gradient, text sits on the blue end or is heading-sized.
 
 | Role              | Font                                | Token / class         |
 | ----------------- | ----------------------------------- | --------------------- |
-| Titles & headings | **Inclusive Sans** 500–600           | `font-display`        |
-| Body & UI         | **Inclusive Sans** 400               | `font-sans` (default) |
-| Labels            | Inclusive Sans 500, sentence case   | `label-caps` utility  |
+| Titles & headings | **Poppins** 500–600           | `font-display`        |
+| Body & UI         | **Urbanist** 400               | `font-sans` (default) |
+| Labels            | Urbanist 500, sentence case   | `label-caps` utility  |
 
-Inclusive Sans is self-hosted through `next/font` and used across the full site at different
-weights. The title and body roles retain the same shared type scale for a consistent hierarchy.
+Poppins is self-hosted for titles and Urbanist is a free stand-in for the paid Gilroy body font. Both load through `next/font`; use licensed Gilroy files if supplied. The title and body roles retain the same shared type scale for a consistent hierarchy.
 
 Fluid type scale (`clamp()`), from 360px to 1440px+:
 
@@ -138,7 +137,7 @@ placeholders, page-hero edge, CTA band, footer). Colour comes from `currentColor
 
 `src/components/layout/`: `Header` (sticky floating pill; glass surface after scroll; mobile menu
 with focus trap), `Footer` (with `FooterReveal` and `GiantWordmark`), `SkipLink`, `PageHero`,
-`Section`, `Breadcrumbs`, `PageSkeleton`, `NewsletterForm`.
+`Section`, `Breadcrumbs`, `PageSkeleton`.
 
 `src/lib/use-media-query.ts`: `useMediaQuery` reports `false` on the server and first paint, so
 scroll-driven layouts (`ScrollGallery`, `ConnectsAssemble`) start from their static form.

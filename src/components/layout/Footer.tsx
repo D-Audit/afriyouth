@@ -33,7 +33,7 @@ export async function Footer() {
               </Link>
               <p className="mt-5 font-display text-[1.0625rem] text-on-night">{site.tagline}</p>
               <p className="mt-2 max-w-sm text-on-night-muted">{site.positioning}</p>
-              <ul className="-ml-3 mt-4 flex gap-1">
+              {site.social.length > 0 && <ul className="-ml-3 mt-4 flex gap-1">
                 {site.social.map((social) => (
                   <li key={social.platform}>
                     <a
@@ -47,7 +47,7 @@ export async function Footer() {
                     </a>
                   </li>
                 ))}
-              </ul>
+              </ul>}
             </div>
 
             <nav aria-label={ui.footerNavLabel} className="grid grid-cols-2 gap-8 lg:col-span-5">
@@ -67,20 +67,20 @@ export async function Footer() {
               ))}
             </nav>
 
-            <div className="lg:col-span-3">
+            {(contactDetails.email.display || contactDetails.phone.display || contactDetails.address.display) && <div className="lg:col-span-3">
               <div>
                 <h2 className="label-caps text-on-night-muted">{footer.contactHeading}</h2>
                 <address className="mt-4 flex flex-col items-start not-italic">
-                  <a href={contactDetails.email.href} className={linkClass}>
+                  {contactDetails.email.display && <a href={contactDetails.email.href} className={linkClass}>
                     {contactDetails.email.display}
-                  </a>
-                  <a href={contactDetails.phone.href} className={linkClass}>
+                  </a>}
+                  {contactDetails.phone.display && <a href={contactDetails.phone.href} className={linkClass}>
                     {contactDetails.phone.display}
-                  </a>
-                  <p className="mt-1 text-on-night-muted">{contactDetails.address.display}</p>
+                  </a>}
+                  {contactDetails.address.display && <p className="mt-1 text-on-night-muted">{contactDetails.address.display}</p>}
                 </address>
               </div>
-            </div>
+            </div>}
           </div>
 
           <div className="mt-14 flex flex-col gap-4 border-t border-night-line pt-6 text-sm text-on-night-muted sm:flex-row sm:items-center sm:justify-between">

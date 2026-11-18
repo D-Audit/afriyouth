@@ -84,10 +84,12 @@ export const programsPage = {
     backLabel: "All programs",
     overviewLabel: "Overview",
     whoLabel: "Who it's for",
+    eligibilityDatesLabel: "Eligibility and dates",
     applyHeading: "Questions about this program?",
     questions: { label: "Explore all programs", href: "/programs" },
     statusLabel: "Status",
     relatedLabel: "Part of",
+    pendingNote: "Dates and eligibility will be announced. Send the team a message for current details.",
   },
 };
 

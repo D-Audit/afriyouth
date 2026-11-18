@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inclusive_Sans } from "next/font/google";
+import { Poppins, Urbanist } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { SiteLoader, LOADER_SCRIPT } from "@/components/layout/SiteLoader";
@@ -11,13 +11,14 @@ import { tokens } from "@/lib/tokens";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 
-/** One typeface across the site; the shared type scale keeps headings and body copy distinct. */
-const inclusiveSans = Inclusive_Sans({
-  variable: "--font-inclusive-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
-  weight: "variable",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
+// Gilroy (brand body font) is a paid font. Urbanist is a free stand-in. To use Gilroy, add the licensed .woff2 files to public/fonts/ and replace Urbanist with next/font/local here only.
+const urbanist = Urbanist({ variable: "--font-urbanist", subsets: ["latin"], weight: "variable", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -36,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang={site.locale}
-      className={`${inclusiveSans.variable} antialiased`}
+      className={`${poppins.variable} ${urbanist.variable} antialiased`}
       suppressHydrationWarning
     >
       <head>

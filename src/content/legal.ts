@@ -1,8 +1,8 @@
 /**
- * legal.ts — placeholder privacy policy and terms of use.
+ * legal.ts — concise privacy policy and terms of use.
  *
  * Shape: { meta, label, heading, updated, notice, sections: { heading, body[] }[] }
- * IMPORTANT: these are placeholders, not legal advice. Replace with reviewed text.
+ * Client review is still required before these pages are treated as approved legal copy.
  */
 import type { PageMeta } from "./types";
 
@@ -15,8 +15,7 @@ type LegalPage = {
   sections: { heading: string; body: string[] }[];
 };
 
-const notice =
-  "This page is a placeholder. It must be replaced with text reviewed by a qualified person before launch.";
+const notice = "This page summarizes how this website works and will be reviewed by AfriYouth Innovation Labs.";
 
 export const privacyPage: LegalPage = {
   meta: {
@@ -25,32 +24,25 @@ export const privacyPage: LegalPage = {
   },
   label: "Legal",
   heading: { title: "Privacy", emphasis: "policy" },
-  updated: "Last updated: [DD Month YYYY]",
+  updated: "Last updated: 18 November 2026",
   notice,
   sections: [
     {
       heading: "Information we collect",
-      body: [
-        "[Placeholder] When you use the contact form we receive your name, email address, organization (optional), role and message.",
-      ],
+      body: ["The contact form collects your name, email address, organization (optional), role and message."],
     },
     {
       heading: "How we use it",
-      body: ["[Placeholder] We use this information only to respond to your inquiry."],
+      body: ["We use this information only to reply to your message."],
     },
     {
-      heading: "Cookies and analytics",
-      body: [
-        "[Placeholder] This site does not set tracking cookies. Update this section if analytics are added.",
-      ],
+      heading: "Cookies and browser storage",
+      body: ["This site sets no tracking cookies. It uses sessionStorage only to remember that the intro animation was shown."],
     },
     {
-      heading: "Your rights",
-      body: [
-        "[Placeholder] Describe how people can access, correct or delete their data, and applicable laws.",
-      ],
+      heading: "External links",
+      body: ["External links lead to websites AfriYouth Innovation Labs does not control."],
     },
-    { heading: "Contact", body: ["[Placeholder] Contact details for privacy questions."] },
   ],
 };
 
@@ -61,19 +53,18 @@ export const termsPage: LegalPage = {
   },
   label: "Legal",
   heading: { title: "Terms", emphasis: "of use" },
-  updated: "Last updated: [DD Month YYYY]",
+  updated: "Last updated: 18 November 2026",
   notice,
   sections: [
     {
       heading: "Using this website",
-      body: ["[Placeholder] Conditions for using this website and its content."],
+      body: ["Use this website for its information and contact features."],
     },
     {
       heading: "Intellectual property",
-      body: ["[Placeholder] Ownership of content, logos and resources."],
+      body: ["Website content and logos belong to AfriYouth Innovation Labs."],
     },
-    { heading: "External links", body: ["[Placeholder] Responsibility for third-party websites."] },
-    { heading: "Changes", body: ["[Placeholder] How and when these terms may change."] },
+    { heading: "External links", body: ["External links lead to websites AfriYouth Innovation Labs does not control."] },
   ],
 };
 

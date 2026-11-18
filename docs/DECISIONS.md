@@ -3,6 +3,13 @@
 Key decisions made while building the site, with the reasoning, so the maintenance team can
 revisit them knowingly.
 
+## 18 Nov 2026
+
+- Fonts changed from Inclusive Sans to Poppins for titles and Urbanist as a free Gilroy stand-in for body text, matching the brand guide while licensed Gilroy is unavailable.
+- Unconfirmed contact details and social profiles were removed from public output.
+- The three audience paths (young person, organization, partner) are the hero buttons on the home page.
+- Privacy and terms text was rewritten to describe only the website's current behavior; client legal review is still needed.
+
 ## Inputs
 
 - **No reference image or Stitch/Figma screens were attached** to the original brief. The visual
@@ -26,8 +33,7 @@ the former palette or placeholder programs, this section supersedes them.
 - **Colours:** brand Blue is the action colour (white text, 8.6:1), Dark Purple replaces black,
   Steel Pink appears only in gradients, glows and as a light tint on dark surfaces.
 - **Fonts:** The brand guide specifies Poppins titles and Gilroy body text. On the user's later
-  design direction, the website now uses Inclusive Sans across all text, with the shared type scale
-  preserving the heading, body and label hierarchy.
+  design direction, the website uses Poppins for titles and Urbanist as a free stand-in for Gilroy body text.
 - **Mission and vision:** the September 2026 document is newer than the 2023 guidelines, so its
   mission and vision are used. The tagline is the one in the logo lockup, "Fueling Innovators for
   Sustainable Development"; "From evidence to impact" is used as a supporting line.
